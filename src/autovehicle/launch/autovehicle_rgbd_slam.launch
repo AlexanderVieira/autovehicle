@@ -1,0 +1,9 @@
+<launch>
+	<include file="$(find autovehicle)/launch/autovehicle_navigation.launch" />
+
+					<!--  ************** gmapping ***************  -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen"/>
+
+				<!--  ************* Visualisation **************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find autovehicle)/cfg/rviz_slam_base_local_planner.rviz" required="true" />
+</launch>

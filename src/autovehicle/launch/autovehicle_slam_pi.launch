@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find autovehicle)/launch/autovehicle_bringup.launch" />
+	<include file="$(find autovehicle)/launch/autovehicle_navigation.launch" />
+
+					<!--  ************** gmapping ***************  -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen"/>
+</launch>

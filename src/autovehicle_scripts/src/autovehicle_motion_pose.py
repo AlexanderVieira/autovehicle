@@ -20,7 +20,10 @@ def poseCallback(pose_message):
     y= pose_message.pose.pose.position.y
     yaw = pose_message.pose.pose.orientation.z
 
-    rospy.loginfo("x = {}".format(x))
+    rospy.loginfo("position x = {}".format(x))
+    rospy.loginfo("position y = {}".format(y))
+    rospy.loginfo("orientation yaw = {}".format(yaw))
+
 
     #print "pose callback"
     #print ('x = {}'.format(pose_message.x)) #new in python 3
@@ -80,7 +83,7 @@ if __name__ == '__main__':
         pose_subscriber = rospy.Subscriber(position_topic, Odometry, poseCallback) 
         time.sleep(2)        
         rospy.loginfo("move")
-        move (1.0, 10.0)
+        move (-1.0, 10.0)
         time.sleep(2)        
         print('start reset: ') 
         rospy.wait_for_service('reset')

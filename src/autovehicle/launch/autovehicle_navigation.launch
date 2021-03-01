@@ -1,0 +1,29 @@
+<launch>
+	
+	<!-- ************ Transforms ************** -->
+	<!-- <node pkg="tf" type="static_transform_publisher" name="laser_publisher" args="0 0 0 0 0 0 map laser_scan_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="sonar_publisher" args="0 0 0 0 0 0 map front_sonar_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="camera_left_publisher" args="0 0 0 0 0 0 map camera_left_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="camera_right_publisher" args="0 0 0 0 0 0 map camera_right_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="pantilt_publisher" args="0 0 0 0 0 0 map pantilt_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="front_left_wheel_publisher" args="0 0 0 0 0 0 map front_left_wheel_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="front_right_wheel_publisher" args="0 0 0 0 0 0 map front_right_wheel_link 100"/> -->
+	
+
+	        <!--  ************** Navigation ***************  -->
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  	  	<rosparam file="$(find autovehicle)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" />
+  	 	<rosparam file="$(find autovehicle)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
+  		<rosparam file="$(find autovehicle)/cfg/local_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find autovehicle)/cfg/global_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find autovehicle)/cfg/dwa_local_planner_params.yaml" command="load" />
+
+		<param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+		<param name="controller_frequency" value="5.0" />
+		<param name="controller_patience" value="15.0" />		
+
+      	<param name="clearing_rotation_allowed" value="true" /> <!-- autovehicle is able to rotate in place -->
+	
+	</node>
+
+</launch>
