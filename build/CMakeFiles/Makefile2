@@ -67,7 +67,9 @@ all: rosserial/rosserial_xbee/all
 all: rosserial/rosserial_client/all
 all: teleop_twist_keyboard/all
 all: autovehicle/all
+all: autovehicle_bringup/all
 all: autovehicle_control/all
+all: autovehicle_navigation/all
 all: autovehicle_scripts/all
 all: autovehicle_simulation/all
 all: autovehicle_slam/all
@@ -95,7 +97,9 @@ preinstall: rosserial/rosserial_xbee/preinstall
 preinstall: rosserial/rosserial_client/preinstall
 preinstall: teleop_twist_keyboard/preinstall
 preinstall: autovehicle/preinstall
+preinstall: autovehicle_bringup/preinstall
 preinstall: autovehicle_control/preinstall
+preinstall: autovehicle_navigation/preinstall
 preinstall: autovehicle_scripts/preinstall
 preinstall: autovehicle_simulation/preinstall
 preinstall: autovehicle_slam/preinstall
@@ -128,7 +132,9 @@ clean: rosserial/rosserial_xbee/clean
 clean: rosserial/rosserial_client/clean
 clean: teleop_twist_keyboard/clean
 clean: autovehicle/clean
+clean: autovehicle_bringup/clean
 clean: autovehicle_control/clean
+clean: autovehicle_navigation/clean
 clean: autovehicle_scripts/clean
 clean: autovehicle_simulation/clean
 clean: autovehicle_slam/clean
@@ -172,6 +178,24 @@ autovehicle/clean: autovehicle/CMakeFiles/roscpp_generate_messages_lisp.dir/clea
 autovehicle/clean: autovehicle/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 .PHONY : autovehicle/clean
+
+#=============================================================================
+# Directory level rules for directory autovehicle_bringup
+
+# Recursive "all" directory target.
+autovehicle_bringup/all:
+
+.PHONY : autovehicle_bringup/all
+
+# Recursive "preinstall" directory target.
+autovehicle_bringup/preinstall:
+
+.PHONY : autovehicle_bringup/preinstall
+
+# Recursive "clean" directory target.
+autovehicle_bringup/clean:
+
+.PHONY : autovehicle_bringup/clean
 
 #=============================================================================
 # Directory level rules for directory autovehicle_control
@@ -243,6 +267,24 @@ autovehicle_description/clean: autovehicle_description/CMakeFiles/map_msgs_gener
 autovehicle_description/clean: autovehicle_description/CMakeFiles/tf_generate_messages_cpp.dir/clean
 
 .PHONY : autovehicle_description/clean
+
+#=============================================================================
+# Directory level rules for directory autovehicle_navigation
+
+# Recursive "all" directory target.
+autovehicle_navigation/all:
+
+.PHONY : autovehicle_navigation/all
+
+# Recursive "preinstall" directory target.
+autovehicle_navigation/preinstall:
+
+.PHONY : autovehicle_navigation/preinstall
+
+# Recursive "clean" directory target.
+autovehicle_navigation/clean:
+
+.PHONY : autovehicle_navigation/clean
 
 #=============================================================================
 # Directory level rules for directory autovehicle_scripts

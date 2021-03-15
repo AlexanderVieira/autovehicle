@@ -164,7 +164,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
         <collision>
             <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>  
             <geometry>
-                <mesh filename="package://autovehicle_description/meshes/ford_escape_no_wheels_2.dae"/>
+                <mesh filename="package://autovehicle_description/meshes/ford_escape_no_wheels_2.dae" scale="0.11 0.11 0.11"/>
             </geometry>
         </collision>
         <visual>
@@ -531,7 +531,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.15 0.15 0.15"/>
+                    <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
                     <!--box size="${front_sonar_size} ${front_sonar_size} ${front_sonar_size}"/-->
                 </geometry>
             </visual>
@@ -607,14 +607,14 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <origin rpy="0 0 0" xyz="0 0 0.16"/>
     <axis xyz="0 0 1"/>
     <parent link="base_link"/>
-    <child link="pantilt_link"/>
-    <limit effort="10000" lower="-3.14" upper="3.14" velocity="1000"/>     
+    <child link="pantilt_link"/> 
+    <limit effort="1.0" lower="0" upper="0" velocity="1.0"/>          
   </joint>
   <link name="pantilt_link">
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0.025 0.025 0.025"/>
+        <box size="0.025 0.04 0.025"/>
       </geometry>
     </collision>
     <visual>
@@ -633,7 +633,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <origin rpy="0 0 0" xyz="0 0 0.025"/>
     <axis xyz="0 0 1"/>
     <parent link="pantilt_link"/>
-    <child link="laser_scan_link"/>    
+    <child link="laser_scan_link"/>      
   </joint>
   <link name="laser_scan_link">
     <collision>
@@ -645,7 +645,8 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0.025 0.025 0.025"/>
+        <!-- <box size="0.025 0.025 0.025"/> -->
+        <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
       </geometry>
     </visual>
     <inertial>

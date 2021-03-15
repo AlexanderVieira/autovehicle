@@ -2,7 +2,7 @@ TrajectoryPlannerROS:
   # for details see: http://www.ros.org/wiki/base_local_planner
   odom_topic: /odom
   
-  max_vel_x: 0.3
+  max_vel_x: 0.26
   min_vel_x: 0.05
   max_rotational_vel: 0.8   # 0.1 rad/sec = 5.7 degree/sec
   min_in_place_rotational_vel: 0.02
@@ -17,7 +17,7 @@ TrajectoryPlannerROS:
   latch_xy_goal_tolerance: false
   
   # Forward Simulation Parameters
-  sim_time: 1                          # The amount of time to forward-simulate trajectories in seconds
+  sim_time: 5.0                          # The amount of time to forward-simulate trajectories in seconds
   sim_granularity: 0.025               # The step size, in meters, to take between points on a given trajectory
   angular_sim_granularity: 0.01        # The step size, in radians, to take between angular samples on a given trajectory.
   vx_samples: 10                       # The number of samples to use when exploring the x velocity space

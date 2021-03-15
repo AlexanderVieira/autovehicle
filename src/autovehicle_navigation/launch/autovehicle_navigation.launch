@@ -1,0 +1,47 @@
+<launch>
+
+  <!-- ************ Transforms ************** -->
+	<!-- <node pkg="tf" type="static_transform_publisher" name="laser_publisher" args="0 0 0 0 0 0 pantilt_link laser_scan_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="sonar_publisher" args="0 0 0 0 0 0 base_link front_sonar_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="camera_left_publisher" args="0 0 0 0 0 0 map camera_left_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="camera_right_publisher" args="0 0 0 0 0 0 map camera_right_link 100"/> 
+	<node pkg="tf" type="static_transform_publisher" name="pantilt_publisher" args="0 0 0 0 0 0 base_link pantilt_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="front_left_wheel_publisher" args="0 0 0 0 0 0 front_left_steering_link front_left_wheel_link 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="front_right_wheel_publisher" args="0 0 0 0 0 0 front_right_steering_link front_right_wheel_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="back_left_wheel_publisher" args="0 0 0 0 0 0 base_link back_left_wheel_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="back_right_wheel_publisher" args="0 0 0 0 0 0 base_link back_right_wheel_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="front_left_steering_publisher" args="0 0 0 0 0 0 base_link front_left_steering_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="front_right_steering_publisher" args="0 0 0 0 0 0 base_link front_right_steering_link 100"/>-->
+
+  <!-- Arguments -->
+  <arg name="model" default="$(find autovehicle_description)/urdf/autovehicle.urdf"/>  	
+	<param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+  <arg name="map_file" default="$(find autovehicle_navigation)/maps/map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+
+  <!-- autovehicle -->
+  <include file="$(find autovehicle_bringup)/launch/autovehicle_remote.launch">
+    <!-- <arg name="model" value="$(arg model)" /> -->
+  </include>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- AMCL -->
+  <include file="$(find autovehicle_navigation)/launch/amcl.launch"/>
+
+  <!-- move_base -->
+  <include file="$(find autovehicle_navigation)/launch/move_base.launch">
+    <!-- <arg name="model" value="$(arg model)" /> -->
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find autovehicle_navigation)/rviz/autovehicle_amcl_navigation.rviz"/>
+    <!-- <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find autovehicle_slam)/rviz/autovehicle_slam_base_local_planner.rviz"/> -->
+  </group>
+</launch>

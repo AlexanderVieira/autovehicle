@@ -3,14 +3,14 @@ DWAPlannerROS:
   odom_topic: /odom
 
 # Robot Configuration Parameters
-  max_vel_x: 0.3
+  max_vel_x: 0.26
   min_vel_x: -0.1
 
   max_vel_y: 0.0            # 0 for non-holonomic robot
   min_vel_y: 0.0            # 0 for non-holonomic robot
 
 # The velocity when robot is moving in a straight line
-  max_trans_vel:  0.3
+  max_trans_vel:  0.26
   min_trans_vel:  0.05
 
   max_rot_vel: 1.6
@@ -26,7 +26,7 @@ DWAPlannerROS:
   latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters
-  sim_time: 3.0                    # The amount of time to forward-simulate trajectories in seconds
+  sim_time: 5.0                    # The amount of time to forward-simulate trajectories in seconds
   sim_granularity: 0.025           # The step size, in meters, to take between points on a given trajectory
   vx_samples: 20                   # The number of samples to use when exploring the x velocity space
   vy_samples: 0                    # The number of samples to use when exploring the y velocity space
@@ -47,4 +47,4 @@ DWAPlannerROS:
 
 # Debugging
   publish_traj_pc : true
-publish_cost_grid_pc: true
+  publish_cost_grid_pc: true

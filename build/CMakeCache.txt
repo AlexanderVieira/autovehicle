@@ -414,6 +414,12 @@ autovehicle_BINARY_DIR:STATIC=/home/ros_ws/build/autovehicle
 autovehicle_SOURCE_DIR:STATIC=/home/ros_ws/src/autovehicle
 
 //Value Computed by CMake
+autovehicle_bringup_BINARY_DIR:STATIC=/home/ros_ws/build/autovehicle_bringup
+
+//Value Computed by CMake
+autovehicle_bringup_SOURCE_DIR:STATIC=/home/ros_ws/src/autovehicle_bringup
+
+//Value Computed by CMake
 autovehicle_control_BINARY_DIR:STATIC=/home/ros_ws/build/autovehicle_control
 
 //Value Computed by CMake
@@ -436,6 +442,12 @@ autovehicle_descripton_BINARY_DIR:STATIC=/home/ros_ws/build/autovehicle_descript
 
 //Value Computed by CMake
 autovehicle_descripton_SOURCE_DIR:STATIC=/home/ros_ws/src/autovehicle_description
+
+//Value Computed by CMake
+autovehicle_navigation_BINARY_DIR:STATIC=/home/ros_ws/build/autovehicle_navigation
+
+//Value Computed by CMake
+autovehicle_navigation_SOURCE_DIR:STATIC=/home/ros_ws/src/autovehicle_navigation
 
 //Value Computed by CMake
 autovehicle_scripts_BINARY_DIR:STATIC=/home/ros_ws/build/autovehicle_scripts
@@ -930,7 +942,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=27
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=29
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

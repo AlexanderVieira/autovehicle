@@ -1,0 +1,22 @@
+<launch>
+  
+  <!-- <arg name="multi_robot_name" default=""/> -->
+  <arg name="gui" default="true" />
+
+  <include file="$(find autovehicle_bringup)/launch/includes/description.launch.xml">
+    <!-- <arg name="model" value="$(arg model)" /> -->
+  </include>
+
+  <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
+		<param name="port" value="tcp"/>
+	</node>  
+
+  <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  </node> -->
+</launch>

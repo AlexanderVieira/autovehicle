@@ -9,6 +9,9 @@
 	<node pkg="tf" type="static_transform_publisher" name="front_left_wheel_publisher" args="0 0 0 0 0 0 map front_left_wheel_link 100"/>
 	<node pkg="tf" type="static_transform_publisher" name="front_right_wheel_publisher" args="0 0 0 0 0 0 map front_right_wheel_link 100"/> -->
 	
+	<arg name="map_file" default="$(find autovehicle_navigation)/maps/map_teste.yaml"/>
+  	<!-- Map server -->
+  	<node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
 	        <!--  ************** Navigation ***************  -->
 	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
@@ -16,6 +19,7 @@
   	 	<rosparam file="$(find autovehicle)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
   		<rosparam file="$(find autovehicle)/cfg/local_costmap_params.yaml" command="load" />
   		<rosparam file="$(find autovehicle)/cfg/global_costmap_params.yaml" command="load" />
+		<rosparam file="$(find autovehicle)/cfg/base_local_planner_params.yaml" command="load" />
   		<rosparam file="$(find autovehicle)/cfg/dwa_local_planner_params.yaml" command="load" />
 
 		<param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />

@@ -1,0 +1,8 @@
+prefix=/home/ros_ws/install
+
+Name: autovehicle_bringup
+Description: Description of autovehicle_bringup
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,60 @@
+<launch>
+
+	<arg name="model" default="$(find autovehicle_description)/urdf/autovehicle.urdf"/>  	
+	<param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+	<!-- autovehicle -->
+  	<include file="$(find autovehicle_bringup)/launch/autovehicle_remote.launch">
+    <!-- <arg name="model" value="$(arg model)" /> -->
+  	</include>
+	
+	<include file="$(find autovehicle_navigation)/launch/autovehicle_navigation1.launch" />
+
+	<arg name="scan_topic" default="/scan" />
+
+					<!--  ************** gmapping ***************  -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+		
+		<param name ="use_sim_time" value="true"/>
+		<param name="map_frame" value="map"/> 
+		<param name="odom_frame" value="odom"/> 
+		<param name="base_frame" value="base_link"/>		
+		<param name="map_update_interval" value="5.0"/> 
+		<param name="maxUrange" value="3.5"/> 
+		<param name="maxRange" value="4.0"/> 
+		<param name="sigma" value="0.05"/> 
+		<param name="kernelSize" value="1"/> 
+		<param name="lstep" value="0.05"/> 
+		<param name="astep" value="0.05"/> 
+		<param name="iterations" value="5"/> 
+		<param name="lsigma" value="0.075"/> 
+		<param name="ogain" value="3.0"/> 
+		<param name="lskip" value="0"/> 
+		<param name="minimumScore" value="0"/> 
+		<param name="srr" value="0.01"/> 
+		<param name="srt" value="0.02"/> 
+		<param name="str" value="0.01"/> 
+		<param name="stt" value="0.02"/> 
+		<param name="linearUpdate" value="0.5"/> 
+		<param name="angularUpdate" value="0.436"/> 
+		<param name="temporalUpdate" value="-1.0"/> 
+		<param name="resampleThreshold" value="0.5"/> 
+		<param name="particles" value="80"/> 
+	
+		<param name="xmin" value="-1.0"/> 
+		<param name="ymin" value="-1.0"/> 
+		<param name="xmax" value="1.0"/> 
+		<param name="ymax" value="1.0"/> 
+	
+		<param name="delta" value="0.05"/> 
+		<param name="llsamplerange" value="0.01"/> 
+		<param name="llsamplestep" value="0.01"/> 
+		<param name="lasamplerange" value="0.005"/> 
+		<param name="lasamplestep" value="0.005"/> 
+		<remap from="scan" to="$(arg scan_topic)"/>
+
+	</node>
+
+				<!--  ************* Visualisation **************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find autovehicle)/cfg/rviz_slam_base_local_planner.rviz" required="true" />
+</launch>
