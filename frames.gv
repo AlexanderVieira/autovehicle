@@ -1,18 +1,18 @@
 digraph G {
-"base_link" -> "front_sonar_link"[label="Broadcaster: /serial_node\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1615155053.259 sec old)\nBuffer length: 0.000 sec\n"];
-"odom" -> "base_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"base_link" -> "main_mass"[label="Broadcaster: /serial_node\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1615155053.259 sec old)\nBuffer length: 0.000 sec\n"];
-"pantilt_link" -> "laser_scan_link"[label="Broadcaster: /serial_node\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1615155053.259 sec old)\nBuffer length: 0.000 sec\n"];
-"base_link" -> "pantilt_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"base_link" -> "back_right_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"base_link" -> "back_left_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"front_right_steering_link" -> "front_right_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"base_link" -> "front_right_steering_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"front_left_steering_link" -> "front_left_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"base_link" -> "front_left_steering_link"[label="Broadcaster: /serial_node\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.073 ( 1.186 sec old)\nBuffer length: 3.567 sec\n"];
-"map" -> "odom"[label="Broadcaster: /amcl\nAverage rate: 1.121 Hz\nMost recent transform: 1615155052.566 ( 0.693 sec old)\nBuffer length: 3.567 sec\n"];
+"map" -> "odom"[label="Broadcaster: /slam_gmapping\nAverage rate: 20.202 Hz\nMost recent transform: 1615926149.914 ( -0.043 sec old)\nBuffer length: 4.950 sec\n"];
+"base_link" -> "back_right_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"odom" -> "base_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"base_link" -> "back_left_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"front_right_steering_link" -> "front_right_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"base_link" -> "front_right_steering_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"front_left_steering_link" -> "front_left_wheel_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"base_link" -> "front_left_steering_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"base_link" -> "front_sonar_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"base_link" -> "pantilt_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"pantilt_link" -> "laser_scan_link"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
+"base_link" -> "main_mass"[label="Broadcaster: /serial_node\nAverage rate: 3.349 Hz\nMost recent transform: 1615926149.579 ( 0.291 sec old)\nBuffer length: 4.479 sec\n"];
 edge [style=invis];
  subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1615155053.259"[ shape=plaintext ] ;
+"Recorded at time: 1615926149.870"[ shape=plaintext ] ;
  }->"map";
 }

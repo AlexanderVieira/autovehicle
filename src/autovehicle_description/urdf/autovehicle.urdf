@@ -25,8 +25,7 @@ AND FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE PROVIDED HEREUNDER
 IS ON AN "AS IS" BASIS, AND THE ARIZONA BOARD OF REGENTS HAS NO OBLIGATION
 TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
-Summary: 
-=======
+Summary: =======
 This file specifies 3D structure of the car with their inertial properties
 and other dynamics.
 -->
@@ -35,8 +34,9 @@ and other dynamics.
 http://www.car-engineer.com/vehicle-inertia-calculation-tool/
 -->
 
-<robot name="autovehicle" xmlns:xacro="http://www.ros.org/wiki/xacro">
- 
+<robot name="autovehicle"
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+
     <xacro:arg name="camera_left" default="true"/>
     <xacro:arg name="camera_right" default="true"/>
     <xacro:arg name="pantilt" default="true"/>
@@ -55,12 +55,12 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <!-- <xacro:property name="base_height" value="1.0639"/> -->
     <xacro:property name="base_height" value="0.05"/>
     <xacro:property name="base_mass" value="1703.239"/>
-    
+
     <!--Car's height is the height of bouding box of the 3D 
     mesh given by meshlab -->
     <!-- <xacro:property name="car_height" value="1.5837572084"/> -->
     <xacro:property name="car_height" value="0.12"/>
-  
+
     <!-- car_to_bumper is car's length. The value reported here
     is the lenght of the bounding box of the 3D mesh of the car's
     body given by meshlab. Actual length of the car may be slightly
@@ -72,16 +72,16 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <xacro:property name="car_COM_x" value="-0.0202"/>
     <xacro:property name="car_COM_y" value="0.0126"/>
     <xacro:property name="car_COM_z" value="-0.0256"/>
-  
+
     <!-- We are assuming that front bumper's height is half of the car's
     bounding box height -->
     <xacro:property name="front_bumper_height" value="${car_height/2}"/>
-    
+
     <!--This is the car tread, i.e distance between right and left front wheels-->
     <xacro:property name="car_width" value="0.165"/>
     <!-- <xacro:property name="car_width" value="1.290"/> -->
     <xacro:property name="car_width_offset" value="0.05"/>
-    
+
     <!-- Inertial tensor of car body has been taken from meshlab after
     analyzing the 3D structure of car body -->
     <xacro:property name="base_mass_ixx" value="347.195805"/>
@@ -90,7 +90,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <xacro:property name="base_mass_iyy" value="2330.10026"/>
     <xacro:property name="base_mass_iyz" value="3.97814264"/>
     <xacro:property name="base_mass_izz" value="2529.41827"/>
-    
+
     <!-- <xacro:property name="tyre_x" value="1.05"/>
     <xacro:property name="tyre_front_x" value="1.55"/>
     <xacro:property name="tyre_back_x" value="-1.05"/>
@@ -101,7 +101,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <xacro:property name="tyre_back_x" value="-0.12"/>
     <xacro:property name="tyre_y" value="0.08"/>
     <xacro:property name="tyre_r" value="0.0"/>
-    
+
 
     <!--Below is the thickness of the car's tyre-->
     <!-- <xacro:property name="tyre_length" value="0.2336291492"/> -->
@@ -110,7 +110,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <!-- <xacro:property name="tyre_radius" value="0.3671951254"/> -->
     <xacro:property name="tyre_radius" value="0.032"/>
     <xacro:property name="tyre_mass" value="20"/>
-  
+
     <!--xacro:property name="tyre_mass_ixx" value="2.53174430759784"/>
     <xacro:property name="tyre_mass_iyy" value="1.43724304615612"/>
     <xacro:property name="tyre_mass_izz" value="1.39917175362076"/>
@@ -128,10 +128,10 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <xacro:property name="tyre_mass_ixy" value="0.0"/>
     <xacro:property name="tyre_mass_iyz" value="0.0"/>
 
- 
+
     <xacro:property name="tyre_height" value="-0.696"/>
     <!-- <xacro:property name="tyre_height" value="-0.696"/> -->
-    
+
     <xacro:property name="str_mass" value="50.00"/>
     <xacro:property name="str_length" value="0"/>
     <xacro:property name="str_radius" value="0"/>
@@ -139,10 +139,10 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <xacro:property name="str_mass_ixx" value="${((1/2)*str_mass*str_radius*str_radius)}"/>
     <xacro:property name="str_mass_iyy" value="${((1/12)*str_mass*str_length*str_length) + ((1/4)*str_mass*str_radius*str_radius)}"/>
     <xacro:property name="str_mass_izz" value="${((1/12)*str_mass*str_length*str_length) + ((1/4)*str_mass*str_radius*str_radius)}"/>
-    
+
     <xacro:property name="str_angle" value="0.3"/>
-    
-    
+
+
     <xacro:property name="tyre_origin">
         <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
     </xacro:property>
@@ -155,14 +155,14 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <xacro:property name="marker_origin">
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:property>
-  
+
     <xacro:property name="front_sonar_size" value="0.03"/>
     <xacro:property name="front_sonar_mass" value="1"/>
-      
+
     <!--Car Body-->
     <link name="base_link">
         <collision>
-            <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>  
+            <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://autovehicle_description/meshes/ford_escape_no_wheels_2.dae" scale="0.11 0.11 0.11"/>
             </geometry>
@@ -182,15 +182,6 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     </joint>
 
     <link name="main_mass" type="fixed">
-        <parent link="inertial_joint"/>
-        <inertial>
-            <origin xyz="${car_COM_x} ${car_COM_y} ${car_COM_z}" rpy="0 0 0"/> <!-- This is the center of mass of Car Body-->
-            <mass value="${base_mass}"/>
-            <inertia
-            ixx="${base_mass_ixx}"  ixy="${base_mass_ixy}" ixz="${base_mass_ixz}"
-            iyy="${base_mass_iyy}" iyz="${base_mass_iyz}"
-            izz="${base_mass_izz}"/>
-        </inertial>
     </link>
 
 
@@ -243,14 +234,11 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 <mesh scale="0.10 0.10 0.10" filename="package://autovehicle_description/meshes/ford_escape_wheel.dae"/>
             </geometry>
         </visual>
-        
+
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="${tyre_mass}"/>
-            <inertia
-            ixx="${tyre_mass_ixx}"  ixy="${tyre_mass_ixy}"  ixz="${tyre_mass_ixz}"
-            iyy="${tyre_mass_iyy}"  iyz="${tyre_mass_iyz}"
-            izz="${tyre_mass_izz}"/>
+            <inertia ixx="${tyre_mass_ixx}" ixy="${tyre_mass_ixy}" ixz="${tyre_mass_ixz}" iyy="${tyre_mass_iyy}" iyz="${tyre_mass_iyz}" izz="${tyre_mass_izz}"/>
         </inertial>
     </link>
 
@@ -265,7 +253,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
         <limit effort="10000" velocity="1000" />
         <joint_properties damping="10" friction="10.0" />
     </joint>
-    
+
     <link name="back_left_wheel_link">
         <collision>
             <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
@@ -293,7 +281,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 </contact>
             </surface>
         </collision>
-        
+
         <visual>
             <!--origin xyz="0 0 0" rpy="${PI/2} 0 0"/-->
             <origin xyz="0 0 0" rpy="0 0 ${PI/2}"/>
@@ -302,15 +290,12 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 <mesh scale="0.10 0.10 0.10" filename="package://autovehicle_description/meshes/ford_escape_wheel.dae"/>
             </geometry>
         </visual>
-        
+
         <inertial>
-        
+
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="${tyre_mass}"/>
-            <inertia
-            ixx="${tyre_mass_ixx}"  ixy="${tyre_mass_ixy}"  ixz="${tyre_mass_ixz}"
-            iyy="${tyre_mass_iyy}"  iyz="${tyre_mass_iyz}"
-            izz="${tyre_mass_izz}"/>
+            <inertia ixx="${tyre_mass_ixx}" ixy="${tyre_mass_ixy}" ixz="${tyre_mass_ixz}" iyy="${tyre_mass_iyy}" iyz="${tyre_mass_iyz}" izz="${tyre_mass_izz}"/>
         </inertial>
     </link>
 
@@ -329,9 +314,9 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     <link name="front_right_steering_link">
         <collision>
             <xacro:insert_block name="tyre_origin"/>
-	        <geometry>
+            <geometry>
                 <cylinder length="${str_length}" radius="${str_radius}"/>
-       		</geometry>
+            </geometry>
         </collision>
 
         <visual>
@@ -340,14 +325,11 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 <cylinder length="${str_length}" radius="${str_radius}"/>
             </geometry>
         </visual>
-        
+
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="${str_mass}"/>
-            <inertia
-            ixx="${str_mass_ixx}"  ixy="0.000000"  ixz="0.000000"
-            iyy="${str_mass_iyy}"  iyz="0.000000"
-            izz="${str_mass_izz}"/>
+            <inertia ixx="${str_mass_ixx}" ixy="0.000000" ixz="0.000000" iyy="${str_mass_iyy}" iyz="0.000000" izz="${str_mass_izz}"/>
         </inertial>
     </link>
 
@@ -361,7 +343,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
         <limit effort="10000" velocity="1000"/>
         <joint_properties damping="10" friction="10.0" />
     </joint>
-    
+
     <link name="front_right_wheel_link">
         <collision>
             <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
@@ -370,7 +352,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 <cylinder length="${tyre_length}" radius="${tyre_radius}"/>
                 <!--mesh filename="package://autovehicle_description/meshes/ford_escape_wheel.dae"/-->
             </geometry>
-            
+
             <surface>
                 <friction>
                     <ode>
@@ -400,16 +382,13 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 <!--cylinder length="${tyre_length}" radius="${tyre_radius}"/>
                 <scale xyz="1 1 1"/-->
                 <mesh scale="0.10 0.10 0.10" filename="package://autovehicle_description/meshes/ford_escape_wheel.dae"/>
-                </geometry>  
+            </geometry>
         </visual>
-        
+
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="${tyre_mass}"/>
-            <inertia
-            ixx="${tyre_mass_ixx}"  ixy="${tyre_mass_ixy}"  ixz="${tyre_mass_ixz}"
-            iyy="${tyre_mass_iyy}"  iyz="${tyre_mass_iyz}"
-            izz="${tyre_mass_izz}"/>
+            <inertia ixx="${tyre_mass_ixx}" ixy="${tyre_mass_ixy}" ixz="${tyre_mass_ixz}" iyy="${tyre_mass_iyy}" iyz="${tyre_mass_iyz}" izz="${tyre_mass_izz}"/>
         </inertial>
     </link>
 
@@ -423,7 +402,6 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     </joint>
 
     <link name="front_left_steering_link">
-        <parent link="base_link"/>
         <collision>
             <xacro:insert_block name="tyre_origin"/>
             <geometry>
@@ -439,30 +417,26 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="${str_mass}"/>
-            <inertia
-            ixx="${str_mass_ixx}"  ixy="0.000000"  ixz="0.000000"
-            iyy="${str_mass_iyy}"  iyz="0.000000"
-            izz="${str_mass_izz}"/>
+            <inertia ixx="${str_mass_ixx}" ixy="0.000000" ixz="0.000000" iyy="${str_mass_iyy}" iyz="0.000000" izz="${str_mass_izz}"/>
         </inertial>
     </link>
 
 
 
-<!--Front Left Wheel-->
+    <!--Front Left Wheel-->
 
     <joint name="front_left_wheel_joint" type="continuous">
-          <parent link="front_left_steering_link"/>
-          <child link="front_left_wheel_link"/>
-          <origin xyz="0 0 0" rpy="0 0 0"/>
-          <axis xyz="0 1 0"/>
-          <dynamics damping="0.01"/>
-          <limit effort="10000" velocity="1000" />
-          <joint_properties damping="10" friction="10.0" />
+        <parent link="front_left_steering_link"/>
+        <child link="front_left_wheel_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <dynamics damping="0.01"/>
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="10" friction="10.0" />
 
     </joint>
 
     <link name="front_left_wheel_link">
-        <parent link="front_left_wheel_joint"/>
         <collision>
             <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
             <!--origin xyz="0 0 0" rpy="0 0 ${PI/2}"/-->
@@ -490,23 +464,20 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
                 </contact>
             </surface>
         </collision>
-        
+
         <visual>
             <!--origin xyz="0 0 0" rpy="${PI/2} 0 0"/-->
             <origin xyz="0 0 0" rpy="0 0 ${PI/2}"/>
             <geometry>
-            <!--cylinder length="${tyre_length}" radius="${tyre_radius}"/-->
-            <mesh scale="0.10 0.10 0.10" filename="package://autovehicle_description/meshes/ford_escape_wheel.dae"/>
+                <!--cylinder length="${tyre_length}" radius="${tyre_radius}"/-->
+                <mesh scale="0.10 0.10 0.10" filename="package://autovehicle_description/meshes/ford_escape_wheel.dae"/>
             </geometry>
         </visual>
 
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="${tyre_mass}"/>
-            <inertia
-            ixx="${tyre_mass_ixx}"  ixy="${tyre_mass_ixy}"  ixz="${tyre_mass_ixz}"
-            iyy="${tyre_mass_iyy}"  iyz="${tyre_mass_iyz}"
-            izz="${tyre_mass_izz}"/>
+            <inertia ixx="${tyre_mass_ixx}" ixy="${tyre_mass_ixy}" ixz="${tyre_mass_ixz}" iyy="${tyre_mass_iyy}" iyz="${tyre_mass_iyz}" izz="${tyre_mass_izz}"/>
         </inertial>
     </link>
 
@@ -518,34 +489,31 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
         <parent link="base_link"/>
         <child link="front_sonar_link"/>
     </joint>
-    
-    <link name="front_sonar_link">
-        <parent link="front_sonar_joint"/>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0.0 0"/>
-                <geometry>
-                    <box size="${front_sonar_size} ${front_sonar_size} ${front_sonar_size}"/>
-                </geometry>
-            </collision>
-            
-            <visual>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
-                    <!--box size="${front_sonar_size} ${front_sonar_size} ${front_sonar_size}"/-->
-                </geometry>
-            </visual>
-            
-            <inertial>
-                <mass value="${front_sonar_mass}" />
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <inertia ixx="${(1/6)*front_sonar_mass*front_sonar_size*front_sonar_size}" ixy="0" ixz="0" 
-                iyy="${(1/6)*front_sonar_mass*front_sonar_size*front_sonar_size}" iyz="0" 
-                izz="${(1/6)*front_sonar_mass*front_sonar_size*front_sonar_size}" />
-            </inertial>
-            </link>
 
-   <!--  <joint name="camera_right_joint" type="fixed">
+    <link name="front_sonar_link">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0.0 0"/>
+            <geometry>
+                <box size="${front_sonar_size} ${front_sonar_size} ${front_sonar_size}"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
+                <!--box size="${front_sonar_size} ${front_sonar_size} ${front_sonar_size}"/-->
+            </geometry>
+        </visual>
+
+        <inertial>
+            <mass value="${front_sonar_mass}" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="${(1/6)*front_sonar_mass*front_sonar_size*front_sonar_size}" ixy="0" ixz="0" iyy="${(1/6)*front_sonar_mass*front_sonar_size*front_sonar_size}" iyz="0" izz="${(1/6)*front_sonar_mass*front_sonar_size*front_sonar_size}" />
+        </inertial>
+    </link>
+
+    <!--  <joint name="camera_right_joint" type="fixed">
     <origin xyz="0 -${car_width/2 - 0.03} ${camera_box/2 + 0.14}" rpy="0 0 -${PI/2}"/>
         <axis xyz="0 0 1"/>
         <parent link="base_link"/>
@@ -604,56 +572,56 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
     </link>
  -->
     <joint name="pantilt_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 0.16"/>
-    <axis xyz="0 0 1"/>
-    <parent link="base_link"/>
-    <child link="pantilt_link"/> 
-    <limit effort="1.0" lower="0" upper="0" velocity="1.0"/>          
-  </joint>
-  <link name="pantilt_link">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.025 0.04 0.025"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.025 0.025 0.025"/>
-      </geometry>
-    </visual>
-    <inertial>
-      <mass value="1e-5"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
-    </inertial>
-  </link>
-  <joint name="laser_scan_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.025"/>
-    <axis xyz="0 0 1"/>
-    <parent link="pantilt_link"/>
-    <child link="laser_scan_link"/>      
-  </joint>
-  <link name="laser_scan_link">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.025 0.025 0.025"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <!-- <box size="0.025 0.025 0.025"/> -->
-        <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
-      </geometry>
-    </visual>
-    <inertial>
-      <mass value="1"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <inertia ixx="0.0104166666667" ixy="0" ixz="0" iyy="0.0104166666667" iyz="0" izz="0.0104166666667"/>
-    </inertial>
-  </link>
+        <origin rpy="0 0 -1.57" xyz="0 0 0.16"/>
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="pantilt_link"/>
+        <limit effort="1.0" lower="0" upper="0" velocity="1.0"/>        
+    </joint>
+    <link name="pantilt_link">
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.025 0.025 0.025"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.025 0.025 0.025"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="1e-5"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+        </inertial>
+    </link>
+    <joint name="laser_scan_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0.025"/>
+        <axis xyz="0 0 1"/>
+        <parent link="pantilt_link"/>
+        <child link="laser_scan_link"/>        
+    </joint>
+    <link name="laser_scan_link">
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.025 0.025 0.025"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <!-- <box size="0.025 0.025 0.025"/> -->
+                <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="1"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.0104166666667" ixy="0" ixz="0" iyy="0.0104166666667" iyz="0" izz="0.0104166666667"/>
+        </inertial>
+    </link>
 
 </robot>
