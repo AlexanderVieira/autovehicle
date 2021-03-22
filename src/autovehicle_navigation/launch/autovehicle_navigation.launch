@@ -16,7 +16,7 @@
   <!-- Arguments -->
   <arg name="model" default="$(find autovehicle_description)/urdf/autovehicle.urdf"/>  	
 	<param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
-  <arg name="map_file" default="$(find autovehicle_navigation)/maps/map.yaml"/>
+  <arg name="map_file" default="$(find autovehicle_navigation)/maps/map_teste_02.yaml"/>
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
 

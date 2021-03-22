@@ -576,7 +576,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
         <axis xyz="0 0 1"/>
         <parent link="base_link"/>
         <child link="pantilt_link"/>
-        <limit effort="1.0" lower="0" upper="0" velocity="1.0"/>        
+        <limit effort="1.0" lower="-1.57" upper="1.57" velocity="1.0"/>        
     </joint>
     <link name="pantilt_link">
         <collision>
@@ -611,7 +611,7 @@ http://www.car-engineer.com/vehicle-inertia-calculation-tool/
             </geometry>
         </collision>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin rpy="0 0 -1.57" xyz="0 0 0"/>
             <geometry>
                 <!-- <box size="0.025 0.025 0.025"/> -->
                 <mesh filename="package://autovehicle_description/meshes/SickLMS.dae" scale="0.14 0.14 0.14"/>
